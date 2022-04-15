@@ -1,15 +1,18 @@
-#example: https://stackoverflow.com/questions/57227611/price-of-items-using-classes-in-python
-
+from dataclasses import dataclass
 from typing import List
 
+
+@dataclass
 class Product:
     name: str
     price: float
 
-    def __init__(self, name, price):
+    def __init__(self, name: str, price: float):
         self.name = name
         self.price = price
 
+
+@dataclass
 class Basket:
 
     def __init__(self):
@@ -17,11 +20,11 @@ class Basket:
 
     def add(self, product: Product):
         self.basket.append(product)
-        return 'add'
+        return self.basket
 
     def remove(self, product: Product):
         self.basket.remove(product)
-        return 'remove'
+        return self.basket
 
     def count_sum(self):
         sum = 0
