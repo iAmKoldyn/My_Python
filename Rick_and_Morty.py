@@ -3,8 +3,11 @@ from requests.exceptions import HTTPError
 import json
 import pprint
 
+
+
+data = {}
+
 try:
-    data = {}
     for i in range(18, 22):
         response = requests.get(f"https://rickandmortyapi.com/api/character/?page={i}")
         for result in list(response.json()['results']):         
