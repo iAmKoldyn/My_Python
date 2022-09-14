@@ -1,5 +1,7 @@
+from lib2to3.pgen2 import driver
 from selenium import webdriver
 from time import sleep
+from selenium.webdriver.common.keys import Keys
 
 
 login = 'Naurlox'
@@ -23,9 +25,9 @@ def main():
     enter = driver.find_element_by_xpath('/html/body/div[2]/form/div[1]/div[3]/button').click()
     sleep(1)
     genres_list = driver.find_element_by_xpath('/html/body/div[1]/div/div/aside/div[1]/ul/li[1]').click()
-    sleep(3)
+    sleep(1)
     our_genres = driver.find_element_by_xpath('/html/body/div[1]/div/div/aside/div[1]/ul/li[1]/ul/li[18]/a').click()
-    sleep(3)
+    sleep(1)
     anime_title6= driver.find_element_by_xpath('//*[@id="pagination"]/div/a[5]').click()
     sleep(3)
     comment_сolumn= driver.find_element_by_xpath('//*[@id="dle-content"]/a[8]/div[1]/img').click()
@@ -34,12 +36,15 @@ def main():
     sleep(3)
     column= driver.find_element_by_xpath('//*[@id="add-comments-form"]/div[2]/div/button').click()
     sleep(1)
-    search = driver.find_element_by_class_name("mce-content-body ").click()
-    sleep(1)
-    search.send_keys("стратегии")
-    # column= driver.find_element_by_xpath('//*[@id="add-comments-form"]/div[2]/div/button').click()
-    # comment.submit()
-    sleep(150)
+
+    elem = driver.find_element_by_xpath('//*[@id="_mce_caret"]') # name поля
+    elem.clear()
+    elem.send_keys("text you need to send") # текст комментария
+    elem.send_keys(Keys.RETURN)
+
+    driver.close()
+    # tinymce = driver.find_element_by_id('tinymce')  //*[@id="_mce_caret"]
+    # tinymce.send_keys('стратегии')
 
     driver.close()
     driver.quit()
@@ -48,3 +53,8 @@ if __name__ == '__main__':
     main()
 
 # жанры детское 6ястраница 8е аниме
+
+
+# com = driver.xpath('//*[@id="tinymce"]')
+# com.click()
+# com.send_keys('qwe')
