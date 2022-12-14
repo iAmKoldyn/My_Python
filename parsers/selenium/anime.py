@@ -33,12 +33,12 @@ def main():
     comment_сolumn= driver.find_element_by_xpath('//*[@id="dle-content"]/a[8]/div[1]/img').click()
     sleep(2)
     our_anime = driver.execute_script("window.scrollTo(0, 3000)")
-    sleep(3)
+    sleep(1)
     column= driver.find_element_by_xpath('//*[@id="add-comments-form"]/div[2]/div/button').click()
     sleep(1)
 
-    elem = driver.find_element_by_xpath('//*[@id="_mce_caret"]') # name поля
-    elem.clear()
+    elem =driver.switch_to.frame(driver.find_element_by_class_name('tox-edit-area__iframe'))
+    # elem = driver.find_element_by_xpath('//*[@id="_mce_caret"]') # name поля
     elem.send_keys("text you need to send") # текст комментария
     elem.send_keys(Keys.RETURN)
 
@@ -46,7 +46,6 @@ def main():
     # tinymce = driver.find_element_by_id('tinymce')  //*[@id="_mce_caret"]
     # tinymce.send_keys('стратегии')
 
-    driver.close()
     driver.quit()
 
 if __name__ == '__main__':

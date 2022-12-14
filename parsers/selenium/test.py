@@ -5,9 +5,6 @@ import unittest
 
 import util
 
-driver = webdriver.Chrome()
-driver.get('https://store.steampowered.com/?l=russian')
-
 class Test(unittest.TestCase):
     """ Demonstration: Get Chrome to generate fullscreen screenshot """
 
@@ -19,7 +16,8 @@ class Test(unittest.TestCase):
 
     def test_fullpage_screenshot(self):
         ''' Generate document-height screenshot '''
-        url = "https://store.steampowered.com/?l=russian"
+        #url = "http://effbot.org/imagingbook/introduction.htm"
+        url = "http://www.w3schools.com/js/default.asp"
         self.driver.get(url)
         util.fullpage_screenshot(self.driver, "test.png")
 

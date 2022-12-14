@@ -1,18 +1,42 @@
 from selenium import webdriver
+from time import sleep
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
-URL = 'https://store.steampowered.com/search/?term=action&tags=19%2C3839%2C4182%2C21%2C4166&vrsupport=401'
 
-options = webdriver.ChromeOptions()
-options.headless = True
+# options = webdriver.ChromeOptions()
+# options.headless =  True
 
-driver = webdriver.Chrome()
-driver.get(URL)
+# driver = webdriver.Chrome(options=options)
+# driver.get(URL)
+# sleep(1)
+# scheight = .1
+# while scheight < 9.9:
+#     sleep(3)
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight/%s);" % scheight)
+#     scheight += .01
+#     S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+#     driver.set_window_size(S('Width'),S('Height')) # May need manual adjustment
+#     driver.find_element_by_tag_name('body').screenshot('web_screenshot.png')
 
-S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-driver.set_window_size(S('Width'),S('Height')) # May need manual adjustment
-driver.find_element_by_tag_name('body').screenshot('web_screenshot.png')
+# driver.quit()
 
-driver.quit()
+# options = webdriver.ChromeOptions()
+# options.headless = True
+
+# driver = webdriver.Chrome()
+# driver.get(URL)
+
+# scheight = .1
+# while scheight < 9.9:
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight/%s);" % scheight)
+#     scheight += .01
+
+#     S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+#     driver.set_window_size(S('Width'),S('Height')) # May need manual adjustment
+#     driver.find_element_by_tag_name('body').screenshot('web_screenshot.png')
+
+# driver.quit()
 
 # scheight = .1
 # while scheight < 9.9:
@@ -24,7 +48,6 @@ driver.quit()
 # 
 # 
 # 
-# from selenium import webdriver
 
 # driver = webdriver.Chrome()
 # driver.get('https://developer.mozilla.org/')
@@ -33,12 +56,6 @@ driver.quit()
 # with open("test2.png", "wb") as file:
 #     file.write(element_png)
 
-# import sys
-# from selenium import webdriver
-# import util
-# import os
-# import time
-# from PIL import Image
 
 # def fullpage_screenshot(driver, file):
 
